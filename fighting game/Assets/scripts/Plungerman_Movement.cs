@@ -5,14 +5,28 @@ using UnityEngine;
 public class Plungerman_Movement : MonoBehaviour
 {
     public float moveSpeed = 5f; // Adjust this to control movement speed
-    private Rigidbody2D rb;
+    private Rigidbody rb;
+
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
+    void update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            highKick();
+        }
+    }
+
+    void highKick()
+    {
+        animator.SetTrigger("HighKick");
+    }
     // Update is called once per frame
     void Update()
     {
