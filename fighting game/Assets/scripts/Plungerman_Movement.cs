@@ -15,18 +15,21 @@ public class Plungerman_Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            highKick();
-        }
-    }
-
     void highKick()
     {
         animator.SetTrigger("HighKick");
     }
+
+    void walkForward()
+    {
+        animator.SetTrigger("Walk_Forward");
+    }
+
+    void walkBack()
+    {
+        animator.SetTrigger("Walk_Back");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,5 +39,21 @@ public class Plungerman_Movement : MonoBehaviour
         Vector2 moveVelocity = moveDirection * moveSpeed;
 
         rb.velocity = moveVelocity;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            highKick();
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            walkForward();
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            walkBack();
+        }
     }
 }
+
