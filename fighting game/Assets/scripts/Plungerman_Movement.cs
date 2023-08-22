@@ -9,6 +9,8 @@ public class Plungerman_Movement : MonoBehaviour
 
     public Animator animator;
 
+    private 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,16 @@ public class Plungerman_Movement : MonoBehaviour
         animator.SetTrigger("Walk_Back");
     }
 
+    void crouch()
+    {
+        crouchPosition = true;
+
+        if (crouchPosition == true)
+        {
+            animator.SetTrigger()
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
