@@ -6,6 +6,7 @@ public class Plungerman_Movement : MonoBehaviour
 {
     public float moveSpeed = 5f; // Adjust this to control movement speed
     private Rigidbody rb;
+    public bool crouchPosition;
 
     public Animator animator;
 
@@ -15,6 +16,7 @@ public class Plungerman_Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        crouchPosition = false;
     }
 
     void highKick()
@@ -34,13 +36,22 @@ public class Plungerman_Movement : MonoBehaviour
 
     void crouch()
     {
-        crouchPosition = true;
-
-        if (crouchPosition == true)
+        if (crouchPosition == false)
         {
-            animator.SetTrigger()
+            animator.SetTrigger("Crouch");
+            crouchPosition = true;
         }
+        else
+        {
+            crouchPosition = false;
+            animator.SetTrigger("Uncrouch");
+        } 
+    }
 
+    void crouchKick()
+    {
+        animator.SetTrigger("Crouch_Kick");
+        crouchPosition = true;
     }
     // Update is called once per frame
     void Update()
@@ -54,7 +65,15 @@ public class Plungerman_Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            highKick();
+            if (crouchPosition == true)
+            {
+                crouchKick();
+            }
+
+            if (crouchPosition == false)
+            {
+                highKick();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.D))
@@ -65,6 +84,11 @@ public class Plungerman_Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             walkBack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            crouch();
         }
     }
 }
