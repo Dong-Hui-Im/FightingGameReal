@@ -6,7 +6,10 @@ public class Plungerman_Movement : MonoBehaviour
 {
     public float moveSpeed = 5f; // Adjust this to control movement speed
     private Rigidbody rb;
+
     public bool crouchPosition;
+
+    public bool isWalkingF = false;
 
     public Animator animator;
 
@@ -26,12 +29,15 @@ public class Plungerman_Movement : MonoBehaviour
 
     void walkForward()
     {
-        animator.SetTrigger("Walk_Forward");
+        isWalkingF = true;
+        animator.SetBool("Walk_Forward", true);
+        animator.SetBool("Walk_Back", false);
     }
 
     void walkBack()
     {
-        animator.SetTrigger("Walk_Back");
+        animator.SetBool("Walk_Back", true);
+        animator.SetBool("Walk_Forward", false);
     }
 
     void crouch()
@@ -44,14 +50,13 @@ public class Plungerman_Movement : MonoBehaviour
         else
         {
             crouchPosition = false;
-            animator.SetTrigger("Uncrouch");
+            animator.SetTrigger("Crouch");
         } 
     }
 
     void crouchKick()
     {
         animator.SetTrigger("Crouch_Kick");
-        crouchPosition = true;
     }
     // Update is called once per frame
     void Update()
@@ -67,28 +72,50 @@ public class Plungerman_Movement : MonoBehaviour
         {
             if (crouchPosition == true)
             {
+                animator.SetBool("Idle", false);
                 crouchKick();
             }
 
             if (crouchPosition == false)
             {
+                animator.SetBool("Idle", false);
                 highKick();
             }
         }
 
         if (Input.GetKeyDown(KeyCode.D))
-        {
+        { 
+            animator.SetBool("Idle", false);
             walkForward();
+        }
+
+        else
+        {
+            animator.SetBool("Idle", true);
+            animator.SetBool("Walk_Forward", false);
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
+            animator.SetBool("Idle", false);
             walkBack();
+        }
+
+        else
+        {
+            animator.SetBool("Idle", true);
+            animator.SetBool("Walk_Back", false);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
+            animator.SetBool("Idle", false);
             crouch();
+        }
+
+        else
+        {
+            animator.SetBool("Idle", true);
         }
     }
 }
