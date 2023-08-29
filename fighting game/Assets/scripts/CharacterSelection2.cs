@@ -15,8 +15,6 @@ public class CharacterSelection2 : MonoBehaviour
 
     private void Start()
     {
-        //  the index is equal to the 'second character selected'
-        indexTwo = PlayerPrefs.GetInt("SecondCharacterSelected");
         // character list created as a new gameobject each time 
         characterList2 = new GameObject[transform.childCount];
 
@@ -66,13 +64,9 @@ public class CharacterSelection2 : MonoBehaviour
 
     public void ConfirmButton()
     {
-        // set the second character that the player has selected, and move  on to the next scene
-        PlayerPrefs.SetInt("SecondCharacterSelected", indexTwo);
+        characterList2[indexTwo].SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        // defines the spawn position and spawns the chosen character in that location
-        Vector3 spawnPositionPlayerTwo = new Vector3(21f, 8.8f, -0.4f);
-        Instantiate(characterList2[indexTwo], spawnPositionPlayerTwo, characterList2[indexTwo].transform.rotation);
-        characterList2[indexTwo].SetActive(true);
+        
     }
 
 }

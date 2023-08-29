@@ -12,11 +12,12 @@ public class CharacterSelection : MonoBehaviour
     // list variables
     private GameObject[] characterList;
     private int index = 0;
+    private bool chosenPlayerOne = false;
 
     private void Start()
     {
-        //  the index is equal to the 'first character selected'
-        index = PlayerPrefs.GetInt("FirstCharacterSelected");
+
+
         // character list created as a new gameobject each time
         characterList = new GameObject[transform.childCount];
 
@@ -71,12 +72,8 @@ public class CharacterSelection : MonoBehaviour
 
     public void ConfirmButton()
     {
-        // set the first character that the player has selected, and move  on to the next scene
-        PlayerPrefs.SetInt("FirstCharacterSelected", index);
+        characterList[index].SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        // defines the spawn position and spawns the chosen character in that location
-        Vector3 spawnPositionPlayerOne = new Vector3(-22.8f, 14f, -0.4f);
-        Instantiate(characterList[index], spawnPositionPlayerOne, characterList[index].transform.rotation);
-        characterList[index].SetActive(true);
+        chosenPlayerOne = true;
     }
 }
