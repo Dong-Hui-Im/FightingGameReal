@@ -7,14 +7,14 @@ public class LoadCharacter : MonoBehaviour
 
     private GameObject playerOneCharacter;
 
-    private bool returnPlungerman;
-    private bool returnPlaguedoctor;
+    private bool returnPlayerOnePlungerman;
+    private bool returnPlayerOnePlaguedoctor;
 
     // Start is called before the first frame update
     void Start()
     {
-        returnPlungerman = CharacterSelection.chosenPlayerOne;
-        returnPlaguedoctor = CharacterSelection.chosenPlayerOne;
+        returnPlayerOnePlungerman = CharacterSelection.confirmedPlungermanPlayerOne;
+        returnPlayerOnePlaguedoctor = CharacterSelection.confirmedPlaguedoctorPlayerOne;
     }
 
     // Update is called once per frame
@@ -25,12 +25,12 @@ public class LoadCharacter : MonoBehaviour
 
     void LoadPlayerOneCharacter()
     {
-        if (returnPlungerman == true)
+        if (returnPlayerOnePlungerman == true)
         {
             Instantiate(Prefabs.Load("plungerman")) as GameObject;
         }
 
-        if (returnPlaguedoctor == true)
+        if (returnPlayerOnePlaguedoctor == true)
         {
             Instantiate(Prefabs.Load("plaguedoctor")) as GameObject;
         }

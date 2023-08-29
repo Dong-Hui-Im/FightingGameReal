@@ -12,7 +12,12 @@ public class CharacterSelection : MonoBehaviour
     // list variables
     private GameObject[] characterList;
     private int index = 0;
-    private bool chosenPlayerOne = false;
+
+    private bool chosenPlungermanPlayerOne = false;
+    private bool chosenPlaguedoctorPlayerOne = false;
+
+    private bool confirmedPlungermanPlayerOne = false;
+    private bool confrimedPlaguedoctorPlayerOne = false;
 
     private void Start()
     {
@@ -70,10 +75,25 @@ public class CharacterSelection : MonoBehaviour
         characterList[index].SetActive(true);
     }
 
+    public void Update()
+    {
+        if (index == 0)
+        {
+            chosenPlaguedoctorPlayerOne = true;
+        }
+
+        if (index == 1)
+        {
+            chosenPlungermanPlayerOne = true;
+        }
+    }
+
     public void ConfirmButton()
     {
         characterList[index].SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        chosenPlayerOne = true;
+
+        confirmedPlungermanPlayerOne = chosenPlungermanPlayerOne;
+        confrimedPlaguedoctorPlayerOne = chosenPlaguedoctorPlayerOne;
     }
 }
