@@ -676,9 +676,10 @@ GameObject:
   - component: {fileID: 9063984590146302470}
   - component: {fileID: -7825873047864706538}
   - component: {fileID: -8190697914235570117}
+  - component: {fileID: -5655267832243668077}
   m_Layer: 0
   m_Name: plaguedoctor2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -737,6 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
+  xRange: 30
   crouchPosition: 0
   animator: {fileID: -8190697914235570117}
 --- !u!95 &-8190697914235570117
@@ -759,6 +761,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &-5655267832243668077
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144993194206019924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.190105, y: 13.60265, z: 13.54367}
+  m_Center: {x: -0.5950527, y: -3.168295, z: -0.7275209}
 --- !u!1 &8522462485822885473
 GameObject:
   m_ObjectHideFlags: 0
