@@ -10,63 +10,85 @@ using UnityEngine.UI;
 public class CharacterSelection2 : MonoBehaviour
 {
     // list variables
-    private GameObject[] characterList2;
-    private int indexTwo = 0;
+    private GameObject[] characterList;
+    private int index = 0;
+
+    private bool chosenPlungermanPlayerTwo = false;
+    private bool chosenPlaguedoctorPlayerTwo = false;
+
+    public static bool confirmedPlungermanPlayerTwo = false;
+    public static bool confirmedPlaguedoctorPlayerTwo = false;
 
     private void Start()
     {
-        // character list created as a new gameobject each time 
-        characterList2 = new GameObject[transform.childCount];
+        // character list created as a new gameobject each time
+        characterList = new GameObject[transform.childCount];
 
         // fill the array
         for (int i = 0; i < transform.childCount; i++)
         {
-            characterList2[i] = transform.GetChild(i).gameObject;
+            characterList[i] = transform.GetChild(i).gameObject;
         }
 
         // toggle off their render
-        foreach (GameObject go in characterList2)
+        foreach (GameObject go in characterList)
         {
             go.SetActive(false);
+        }
+
+        //we toggle on the selected character
+        if (characterList[index])
+        {
+            characterList[index].SetActive(true);
         }
     }
 
     public void ToggleLeft()
     {
         // toggle off the current model
-        characterList2[indexTwo].SetActive(false);
+        characterList[index].SetActive(false);
 
-        indexTwo--; // minus one to the 
-        if(indexTwo < 0)
+        index--;
+        if (index < 0)
         {
-            indexTwo = characterList2.Length - 1;
+            index = characterList.Length - 1;
         }
 
         // topple on the new model
-        characterList2[indexTwo].SetActive(true);
+        characterList[index].SetActive(true);
     }
 
     public void ToggleRight()
     {
         // toggle off the current model
-        characterList2[indexTwo].SetActive(false);
+        characterList[index].SetActive(false);
 
-        indexTwo++; // plus one to index two
-        // if index two is too long for the list, reset it back to 0
-        if (indexTwo == characterList2.Length)
+        index++;
+        if (index == characterList.Length)
         {
-            indexTwo = 0;
+            index = 0;
         }
 
-        // toggle on the new model
-        characterList2[indexTwo].SetActive(true);
+        // topple on the new model
+        characterList[index].SetActive(true);
     }
 
     public void ConfirmButton()
     {
-        characterList2[indexTwo].SetActive(false);
+        characterList[index].SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
-    }
 
+        if (index == 0)
+        {
+            chosenPlaguedoctorPlayerTwo = true;
+        }
+
+        if (index == 1)
+        {
+            chosenPlungermanPlayerTwo = true;
+        }
+
+        confirmedPlungermanPlayerTwo = chosenPlungermanPlayerTwo;
+        confirmedPlaguedoctorPlayerTwo = chosenPlaguedoctorPlayerTwo;
+    }
 }

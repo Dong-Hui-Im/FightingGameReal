@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlagueDoctorMovement : MonoBehaviour
+public class PlagueDoctorMovement2 : MonoBehaviour
 
 {
     public float moveSpeed = 5f; // Adjust this to control movement speed
@@ -23,7 +23,7 @@ public class PlagueDoctorMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal2");
     }
 
     private void FixedUpdate()

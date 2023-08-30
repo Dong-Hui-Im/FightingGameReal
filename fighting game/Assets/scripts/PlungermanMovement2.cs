@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlungermanMovement : MonoBehaviour
+public class PlungermanMovement2 : MonoBehaviour
 
 {
     public float moveSpeed = 5f; // Adjust this to control movement speed
@@ -72,10 +72,9 @@ public class PlungermanMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
         // if space is pressed
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             //  and if crouching
             if (crouchPosition == true)
@@ -90,8 +89,8 @@ public class PlungermanMovement : MonoBehaviour
                 highKick();
             }
         }
-        // if d is pressed
-        if (Input.GetKeyDown(KeyCode.D))
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             //  call the walk forward animation
             walkForward();
@@ -105,7 +104,7 @@ public class PlungermanMovement : MonoBehaviour
         }
 
         // if a is pressed
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             //  call the walk back animation
             walkBack();
@@ -119,16 +118,15 @@ public class PlungermanMovement : MonoBehaviour
         }
 
         // if s is pressed
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             //  call the crouch function
             crouch();
         }
 
-        horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal2");
 
     }
-
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);

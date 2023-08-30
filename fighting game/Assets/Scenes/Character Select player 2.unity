@@ -212,8 +212,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 854302526}
-        m_TargetAssemblyTypeName: CharacterSelection, Assembly-CSharp
+      - m_Target: {fileID: 854302528}
+        m_TargetAssemblyTypeName: CharacterSelection2, Assembly-CSharp
         m_MethodName: ToggleLeft
         m_Mode: 1
         m_Arguments:
@@ -645,7 +645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854302527}
-  - component: {fileID: 854302526}
+  - component: {fileID: 854302528}
   m_Layer: 0
   m_Name: Character List 2
   m_TagString: Untagged
@@ -653,18 +653,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &854302526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854302525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30f9446eef04e1640ba1bf39c910b664, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &854302527
 Transform:
   m_ObjectHideFlags: 0
@@ -682,6 +670,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854302528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854302525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52674dc3c20fbd348b7e4dd466370d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1077188698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,8 +1064,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 854302526}
-        m_TargetAssemblyTypeName: CharacterSelection, Assembly-CSharp
+      - m_Target: {fileID: 854302528}
+        m_TargetAssemblyTypeName: CharacterSelection2, Assembly-CSharp
         m_MethodName: ToggleRight
         m_Mode: 1
         m_Arguments:
@@ -1198,8 +1198,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 854302526}
-        m_TargetAssemblyTypeName: CharacterSelection, Assembly-CSharp
+      - m_Target: {fileID: 854302528}
+        m_TargetAssemblyTypeName: CharacterSelection2, Assembly-CSharp
         m_MethodName: ConfirmButton
         m_Mode: 1
         m_Arguments:

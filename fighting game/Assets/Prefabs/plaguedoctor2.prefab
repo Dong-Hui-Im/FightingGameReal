@@ -674,10 +674,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8809890292928846830}
   - component: {fileID: 9063984590146302470}
-  - component: {fileID: 9063984590146302469}
-  - component: {fileID: 1182492076693585805}
+  - component: {fileID: -7825873047864706538}
+  - component: {fileID: -8190697914235570117}
   m_Layer: 0
-  m_Name: plaguedoctor
+  m_Name: plaguedoctor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -690,8 +690,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8144993194206019924}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -21.21, y: 8.5, z: -0.12}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.21, y: 8.5, z: -0.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -707,7 +707,7 @@ Transform:
   - {fileID: 721284983233014499}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &9063984590146302470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -724,7 +724,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9063984590146302469
+--- !u!114 &-7825873047864706538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -733,13 +733,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8144993194206019924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebd46c85f15d440479d79d8a01f05b88, type: 3}
+  m_Script: {fileID: 11500000, guid: 7855d6beacde7fc448a5345712eb6255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
   crouchPosition: 0
-  animator: {fileID: 1182492076693585805}
---- !u!95 &1182492076693585805
+  animator: {fileID: -8190697914235570117}
+--- !u!95 &-8190697914235570117
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0

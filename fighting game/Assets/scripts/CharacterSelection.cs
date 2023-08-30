@@ -16,8 +16,8 @@ public class CharacterSelection : MonoBehaviour
     private bool chosenPlungermanPlayerOne = false;
     private bool chosenPlaguedoctorPlayerOne = false;
 
-    private bool confirmedPlungermanPlayerOne = false;
-    private bool confrimedPlaguedoctorPlayerOne = false;
+    public static bool confirmedPlungermanPlayerOne = false;
+    public static bool confirmedPlaguedoctorPlayerOne = false;
 
     private void Start()
     {
@@ -75,8 +75,11 @@ public class CharacterSelection : MonoBehaviour
         characterList[index].SetActive(true);
     }
 
-    public void Update()
+    public void ConfirmButton()
     {
+        characterList[index].SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
         if (index == 0)
         {
             chosenPlaguedoctorPlayerOne = true;
@@ -86,14 +89,8 @@ public class CharacterSelection : MonoBehaviour
         {
             chosenPlungermanPlayerOne = true;
         }
-    }
-
-    public void ConfirmButton()
-    {
-        characterList[index].SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         confirmedPlungermanPlayerOne = chosenPlungermanPlayerOne;
-        confrimedPlaguedoctorPlayerOne = chosenPlaguedoctorPlayerOne;
+        confirmedPlaguedoctorPlayerOne = chosenPlaguedoctorPlayerOne;
     }
 }
