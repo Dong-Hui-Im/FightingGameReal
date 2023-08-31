@@ -1,4 +1,4 @@
-# FightingGameReal
+# Blazing Chain
  This is the fighting game I have created called Blazing Chain. As of now, only one character is (barely) playable. 
  
  Player one controls are a and d to move left and right, and q for attack
