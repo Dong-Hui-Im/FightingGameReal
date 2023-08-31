@@ -677,6 +677,7 @@ GameObject:
   - component: {fileID: 9063984590146302469}
   - component: {fileID: 1182492076693585805}
   - component: {fileID: -5424224397223311409}
+  - component: {fileID: -8575368879913731599}
   m_Layer: 0
   m_Name: plaguedoctor
   m_TagString: Player
@@ -774,6 +775,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.190105, y: 13.60265, z: 13.54367}
   m_Center: {x: -0.5950527, y: -3.168295, z: -0.7275209}
+--- !u!114 &-8575368879913731599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8144993194206019924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df5188ce51afa0448b66e0e0f2a34fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealthbar: {fileID: 8338046331144752907, guid: b1d379734cc040b4195fbb541799b455, type: 3}
 --- !u!1 &8522462485822885473
 GameObject:
   m_ObjectHideFlags: 0

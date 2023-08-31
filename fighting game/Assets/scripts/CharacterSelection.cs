@@ -21,8 +21,6 @@ public class CharacterSelection : MonoBehaviour
 
     private void Start()
     {
-
-
         // character list created as a new gameobject each time
         characterList = new GameObject[transform.childCount];
 

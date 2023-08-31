@@ -679,7 +679,7 @@ GameObject:
   - component: {fileID: -5655267832243668077}
   m_Layer: 0
   m_Name: plaguedoctor2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

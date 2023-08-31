@@ -6,11 +6,19 @@ public class PlungermanMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; // Adjust this to control movement speed
     private Rigidbody rb;  // rigid body variable
+    public Vector3 startPosition;
 
     private float horizontal;
     public float xRange = 30;  // the range of the boundary
     public bool crouchPosition; // crouch variable 
     public Animator animator; // Animation variable
+
+    public Collider[] attackHitboxes;
+
+    void Awake()
+    {
+        startPosition = transform.position;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -71,8 +79,6 @@ public class PlungermanMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         // if space is pressed
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -80,12 +86,14 @@ public class PlungermanMovement : MonoBehaviour
             if (crouchPosition == true)
             {
                 // crouch kick
+                LaunchAttack(attackHitboxes[0]);
                 crouchKick();
             }
             // if not crouching
             if (crouchPosition == false)
             {
                 //  normal highkick
+                LaunchAttack(attackHitboxes[1]);
                 highKick();
             }
         }
@@ -141,6 +149,22 @@ public class PlungermanMovement : MonoBehaviour
     {
         //  uses the horizontal input to apply velocity to make the player move left and right
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+    }
+
+    private void LaunchAttack(Collider col)
+    {
+        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
+
+        foreach (Collider c in cols)
+        {
+            if (c.transform.parent.parent == transform)
+            {
+                continue;
+            }
+
+            float damage = 10;
+            c.SendMessageUpwards("TakeDamage", damage);
+        }
     }
 }
 

@@ -12,6 +12,8 @@ public class PlungermanMovement2 : MonoBehaviour
     public bool crouchPosition; // crouch variable 
     public Animator animator; // Animation variable
 
+    public Collider[] attackHitboxes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,12 +81,14 @@ public class PlungermanMovement2 : MonoBehaviour
             if (crouchPosition == true)
             {
                 // crouch kick
+                LaunchAttack(attackHitboxes[0]);
                 crouchKick();
             }
             // if not crouching
             if (crouchPosition == false)
             {
                 //  normal highkick
+                LaunchAttack(attackHitboxes[1]);
                 highKick();
             }
         }
@@ -141,6 +145,22 @@ public class PlungermanMovement2 : MonoBehaviour
     {
         //  uses the horizontal input to apply velocity to make the player move left and right
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+    }
+
+    private void LaunchAttack(Collider col)
+    {
+        Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
+
+        foreach (Collider c in cols)
+        {
+            if (c.transform.parent.parent == transform)
+            {
+                continue;
+            }
+
+            float damage = 10;
+            c.SendMessageUpwards("TakeDamage", damage);
+        }
     }
 }
 
